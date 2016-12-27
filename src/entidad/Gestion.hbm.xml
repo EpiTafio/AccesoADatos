@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-dic-2016 1:15:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidad.Gestion" table="gestion" catalog="gestion_proyecto" optimistic-lock="version">
+        <composite-id name="id" class="entidad.GestionId">
+            <key-property name="codProv" type="string">
+                <column name="codProv" length="6" />
+            </key-property>
+            <key-property name="codPieza" type="string">
+                <column name="codPieza" length="6" />
+            </key-property>
+            <key-property name="codProyecto" type="string">
+                <column name="codProyecto" length="6" />
+            </key-property>
+        </composite-id>
+        <property name="cantidad" type="float">
+            <column name="cantidad" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
