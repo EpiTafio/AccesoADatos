@@ -11,12 +11,13 @@ package vistas;
  */
 public class Principal extends javax.swing.JFrame {
 
+   public int llama;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-        vnProveedores.setVisible(false);
+        vnGestion.setVisible(false);
     }
 
     /**
@@ -28,7 +29,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        vnProveedores = new javax.swing.JInternalFrame();
+        vnGestion = new javax.swing.JInternalFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -36,21 +37,21 @@ public class Principal extends javax.swing.JFrame {
         menuBD = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnSalir = new javax.swing.JMenuItem();
         menuProve = new javax.swing.JMenu();
         mnGestProv = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        mnListProv = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         menuPieza = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        mnGestPieza = new javax.swing.JMenuItem();
+        mnListPieza = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         menuProye = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        mnGestProye = new javax.swing.JMenuItem();
+        mnListProye = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
@@ -64,9 +65,9 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión de Proyectos");
 
-        vnProveedores.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        vnProveedores.setTitle("Gestión de Proyectos");
-        vnProveedores.setVisible(true);
+        vnGestion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        vnGestion.setTitle("Gestión de Proyectos");
+        vnGestion.setVisible(false);
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
@@ -74,11 +75,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 391, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Gestión de Proveedores", jPanel1);
@@ -89,27 +90,27 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 391, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Listado de Proveedores", jPanel2);
 
-        javax.swing.GroupLayout vnProveedoresLayout = new javax.swing.GroupLayout(vnProveedores.getContentPane());
-        vnProveedores.getContentPane().setLayout(vnProveedoresLayout);
-        vnProveedoresLayout.setHorizontalGroup(
-            vnProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout vnGestionLayout = new javax.swing.GroupLayout(vnGestion.getContentPane());
+        vnGestion.getContentPane().setLayout(vnGestionLayout);
+        vnGestionLayout.setHorizontalGroup(
+            vnGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
         );
-        vnProveedoresLayout.setVerticalGroup(
-            vnProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+        vnGestionLayout.setVerticalGroup(
+            vnGestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
         );
 
-        getContentPane().add(vnProveedores, java.awt.BorderLayout.CENTER);
+        getContentPane().add(vnGestion, java.awt.BorderLayout.CENTER);
 
         menuBD.setText("Base de Datos");
 
@@ -119,13 +120,13 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem1.setText("Borrar");
         menuBD.add(jMenuItem1);
 
-        jMenuItem2.setText("Salir");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        menuBD.add(jMenuItem2);
+        menuBD.add(btnSalir);
 
         barraMenu.add(menuBD);
 
@@ -139,55 +140,60 @@ public class Principal extends javax.swing.JFrame {
         });
         menuProve.add(mnGestProv);
 
-        jMenu1.setText("Consulta");
+        mnListProv.setText("Consulta");
 
         jMenuItem5.setText("por Código");
-        jMenu1.add(jMenuItem5);
+        mnListProv.add(jMenuItem5);
 
         jMenuItem6.setText("por Nombre");
-        jMenu1.add(jMenuItem6);
+        mnListProv.add(jMenuItem6);
 
         jMenuItem7.setText("por Dirección");
-        jMenu1.add(jMenuItem7);
+        mnListProv.add(jMenuItem7);
 
-        menuProve.add(jMenu1);
+        menuProve.add(mnListProv);
 
         barraMenu.add(menuProve);
 
         menuPieza.setText("Piezas");
 
-        jMenuItem8.setText("Gestión Piezas");
-        menuPieza.add(jMenuItem8);
+        mnGestPieza.setText("Gestión Piezas");
+        mnGestPieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnGestPiezaActionPerformed(evt);
+            }
+        });
+        menuPieza.add(mnGestPieza);
 
-        jMenu2.setText("Consultas");
+        mnListPieza.setText("Consultas");
 
         jMenuItem9.setText("Por Código");
-        jMenu2.add(jMenuItem9);
+        mnListPieza.add(jMenuItem9);
 
         jMenuItem10.setText("por Nombre");
-        jMenu2.add(jMenuItem10);
+        mnListPieza.add(jMenuItem10);
 
-        menuPieza.add(jMenu2);
+        menuPieza.add(mnListPieza);
 
         barraMenu.add(menuPieza);
 
         menuProye.setText("Proyectos");
 
-        jMenuItem12.setText("Gestión");
-        menuProye.add(jMenuItem12);
+        mnGestProye.setText("Gestión");
+        menuProye.add(mnGestProye);
 
-        jMenu3.setText("Consulta");
+        mnListProye.setText("Consulta");
 
         jMenuItem13.setText("por Código");
-        jMenu3.add(jMenuItem13);
+        mnListProye.add(jMenuItem13);
 
         jMenuItem14.setText("por Nombre");
-        jMenu3.add(jMenuItem14);
+        mnListProye.add(jMenuItem14);
 
         jMenuItem15.setText("por Ciudad");
-        jMenu3.add(jMenuItem15);
+        mnListProye.add(jMenuItem15);
 
-        menuProye.add(jMenu3);
+        menuProye.add(mnListProye);
 
         barraMenu.add(menuProye);
 
@@ -215,14 +221,19 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void mnGestProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnGestProvActionPerformed
-        this.vnProveedores.setVisible(true);
-        barraMenu.setEnabled(false);
+        this.vnGestion.setVisible(true);
+      llama=1;
     }//GEN-LAST:event_mnGestProvActionPerformed
+
+    private void mnGestPiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnGestPiezaActionPerformed
+           this.vnGestion.setVisible(true);
+           llama=2;
+    }//GEN-LAST:event_mnGestPiezaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,7 +246,7 @@ public class Principal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -256,6 +267,7 @@ public class Principal extends javax.swing.JFrame {
             @Override
             public void run() {
                 new Principal().setVisible(true);
+               
             }
         });
     }
@@ -263,12 +275,9 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Ayuda;
     private javax.swing.JMenuBar barraMenu;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem btnSalir;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
@@ -276,12 +285,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -291,7 +298,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu menuPieza;
     private javax.swing.JMenu menuProve;
     private javax.swing.JMenu menuProye;
+    private javax.swing.JMenuItem mnGestPieza;
     private javax.swing.JMenuItem mnGestProv;
-    private javax.swing.JInternalFrame vnProveedores;
+    private javax.swing.JMenuItem mnGestProye;
+    private javax.swing.JMenu mnListPieza;
+    private javax.swing.JMenu mnListProv;
+    private javax.swing.JMenu mnListProye;
+    private javax.swing.JInternalFrame vnGestion;
     // End of variables declaration//GEN-END:variables
 }
