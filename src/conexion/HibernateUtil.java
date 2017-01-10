@@ -10,6 +10,8 @@ public class HibernateUtil {
 
     private static final SessionFactory sessionFactory;
     private static final ThreadLocal session = new ThreadLocal();
+    
+  
 
     static {
         try {
@@ -19,6 +21,7 @@ public class HibernateUtil {
             ServiceRegistry sr = new ServiceRegistryBuilder().applySettings(config.getProperties()).build();
             sessionFactory = config.buildSessionFactory(sr);
             //sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+           
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);
@@ -44,4 +47,5 @@ public class HibernateUtil {
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+  
 }

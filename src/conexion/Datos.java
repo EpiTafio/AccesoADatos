@@ -3,6 +3,8 @@ package conexion;
 import entidad.Piezas;
 import entidad.Proveedores;
 import entidad.Proyectos;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -10,8 +12,28 @@ import org.hibernate.Session;
  */
 public class Datos {
 
+    boolean vacio;
+
     // constructor vacio
     public Datos() {
+    }
+
+    public boolean compruebaBd() {
+        // solo miro si existe una tabla y me fio
+        Session s = HibernateUtil.getCurrentSession();
+
+        try {
+            Query ques = s.createQuery("from Proveedores");
+
+            List<Proveedores> resul = ques.list();
+            vacio = false;
+            
+        } catch (Exception e) {
+            vacio=true;
+        }
+
+        s.close();
+        return vacio;
     }
 
     ////////////////////
