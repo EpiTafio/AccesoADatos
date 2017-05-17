@@ -1,10 +1,15 @@
+drop table if EXISTS piezas;
+drop table if EXISTS proveedores;
+drop table if EXISTS proyectos;
+drop table if EXISTS gestion;
+
 CREATE TABLE IF NOT EXISTS piezas
 (
 	CODIGO VARCHAR(6) NOT NULL PRIMARY KEY,
 	NOMBRE VARCHAR(20) NOT NULL,
 	PRECIO FLOAT NOT NULL,
 	DESCRIPCION TEXT
-) ;
+);
 
 CREATE TABLE IF NOT EXISTS proveedores
 (
@@ -41,11 +46,45 @@ INSERT IGNORE INTO piezas VALUES('A00004','Tirafondo',1.8,'Métrica decimal');
 INSERT IGNORE INTO piezas VALUES('A00005','Escarpia',0.65,'Métrica decimal');
 INSERT IGNORE INTO piezas VALUES('A00006','Tuerca',1.3,'Métrica decimal');
 
-INSERT IGNORE INTO proveedores VALUES('B00001','Federico','Trillo Figueroa','Alcalá-Meco, Pab 3, celda 211');
+INSERT IGNORE INTO proveedores VALUES('B00001','Federico','Trillo Figueroa','Alcalá-Meco, Pab 3, celda 211, Alcalá');
+INSERT IGNORE INTO proveedores VALUES('B00002','Salustiano','Ruperez','Goenkale 4, 5 Dr, Arralde');
+INSERT IGNORE INTO proveedores VALUES('B00003','Ambrosio','Buenavida Rey','Gao Lacho Drom 37, Vitoria');
+INSERT IGNORE INTO proveedores VALUES('B00004','Jose Antonio','Primo de Rivera','Valle de los Caidos nicho 36, Madrid');
+INSERT IGNORE INTO proveedores VALUES('B00005','Fernando','Pelaez Tejada','Zumaquera 188, Vitoria');
+INSERT IGNORE INTO proveedores VALUES('B00006','Tino','Casal del Monte','Los Geronimos 44, Zamora');
+INSERT IGNORE INTO proveedores VALUES('B00007','Maria','de la O Ortiz','El Lerele, Jaen');
+INSERT IGNORE INTO proveedores VALUES('B00008','Dolores','Fuertes de Barriga','Calle del Chivo 59, Placencia');
+INSERT IGNORE INTO proveedores VALUES('B00009','Adolfo','Bahamonde Aurrekoetxea','Baserri Altuza, Igara');
+
 
 INSERT IGNORE INTO proyectos VALUES('C00001','Operación Manhatan','Alburquerque');
+INSERT IGNORE INTO proyectos VALUES('C00002','Tricornio Espacial','Lepe');
+INSERT IGNORE INTO proyectos VALUES('C00003','Botijo Atómico','Bujaraloz');
+INSERT IGNORE INTO proyectos VALUES('C00004','Cubo Redondo','Abetxuko');
+INSERT IGNORE INTO proyectos VALUES('C00005','Espejo Negro','Gernika');
+INSERT IGNORE INTO proyectos VALUES('C00006','Justicia Ciega','Bronx');
+INSERT IGNORE INTO proyectos VALUES('C00007','Cayo Malayo','Marbella');
+INSERT IGNORE INTO proyectos VALUES('C00008','Fistro Diodenal','Bonanza');
+INSERT IGNORE INTO proyectos VALUES('C00009','Pipas Sosas','Valencia');
+INSERT IGNORE INTO proyectos VALUES('C00010','Trincat la pela','Barcelona');
+INSERT IGNORE INTO proyectos VALUES('C00011','Pajaritas de Laton','Bilbo');
 
 INSERT IGNORE INTO gestion VALUES('B00001','A00001','C00001',7);
+INSERT IGNORE INTO gestion VALUES('B00001','A00002','C00001',200);
+INSERT IGNORE INTO gestion VALUES('B00001','A00003','C00001',40);
+INSERT IGNORE INTO gestion VALUES('B00002','A00005','C00002',76);
+INSERT IGNORE INTO gestion VALUES('B00003','A00006','C00002',8);
+INSERT IGNORE INTO gestion VALUES('B00009','A00002','C00002',53);
+INSERT IGNORE INTO gestion VALUES('B00002','A00004','C00002',2000);
+INSERT IGNORE INTO gestion VALUES('B00006','A00006','C0003',23);
+INSERT IGNORE INTO gestion VALUES('B00007','A00004','C00003',32);
+INSERT IGNORE INTO gestion VALUES('B00009','A00002','C00004',88);
+INSERT IGNORE INTO gestion VALUES('B00007','A00004','C00007',666);
+INSERT IGNORE INTO gestion VALUES('B00008','A00003','C00008',554);
+INSERT IGNORE INTO gestion VALUES('B00005','A00002','C00008',1);
+INSERT IGNORE INTO gestion VALUES('B00005','A00004','C00009',3);
+INSERT IGNORE INTO gestion VALUES('B00009','A00004','C00010',43);
+INSERT IGNORE INTO gestion VALUES('B00001','A00001','C00011',854);
 
 commit;
 /* AMEN */

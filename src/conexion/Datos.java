@@ -21,17 +21,13 @@ public class Datos {
     public boolean compruebaBd() {
         // solo miro si existe una tabla y me fio
         Session s = HibernateUtil.getCurrentSession();
-
         try {
             Query ques = s.createQuery("from Proveedores");
-
             List<Proveedores> resul = ques.list();
             vacio = false;
-            
         } catch (Exception e) {
-            vacio=true;
+            vacio = true;
         }
-
         s.close();
         return vacio;
     }
@@ -48,7 +44,17 @@ public class Datos {
         s.close();
         return result;
     }
-
+    // Lista
+    public List<Proveedores> listaProv(){
+        List<Proveedores> result=null;
+       Session s = HibernateUtil.getCurrentSession();
+        s.beginTransaction();
+        Query q=s.createQuery("from Proveedores");
+        result=q.list();
+          s.getTransaction().commit();
+        s.close();
+        return result;
+    }
     // ALTA
     public void altaProveedor(Proveedores prov) {
         Session s = HibernateUtil.getCurrentSession();
@@ -63,6 +69,15 @@ public class Datos {
         Session s = HibernateUtil.getCurrentSession();
         s.beginTransaction();
         s.delete(prov);
+        s.getTransaction().commit();
+        s.close();
+    }
+
+    // MODIFICACION
+    public void modiProveedor(String codigo) {
+        Session s = HibernateUtil.getCurrentSession();
+        s.beginTransaction();
+
         s.getTransaction().commit();
         s.close();
     }

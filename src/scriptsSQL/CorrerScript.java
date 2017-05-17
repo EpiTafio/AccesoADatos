@@ -1,11 +1,9 @@
 package scriptsSQL;
 
-import conexion.HibernateUtil;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import org.hibernate.Session;
 
 /**
  * @author Kepa I. González Romero
@@ -38,11 +36,9 @@ public class CorrerScript {
             e.printStackTrace();
         }
         String consulta = stringBuilder.toString();
-
-        // ejecuto el script
-         Session s = HibernateUtil.getCurrentSession();
-
-        
+		// descomentar para ver en consola el resultado
+//        System.out.println(consulta);
+    
     }
 
 }
